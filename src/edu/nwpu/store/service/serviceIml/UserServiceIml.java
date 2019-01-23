@@ -54,4 +54,12 @@ public class UserServiceIml implements UserService {
 			return user;
 		}
 	}
+
+	
+	@Override
+	public User checkUserName(User user) throws SQLException {
+		UserDao dao = new UserDaoIml();
+		user = dao.findUserbyUserName(user);
+		return user;
+	}
 }

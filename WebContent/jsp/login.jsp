@@ -38,6 +38,7 @@ font {
     padding-right:17px;
 }
 </style>
+
 </head>
 <body>
 <div class="container">
@@ -85,7 +86,7 @@ font {
           <input type="checkbox" name="autoLogin" value="1" ${not empty cookie.autoLoginCookie? "checked='checked'":"" }> 自动登录
         </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label>
-          <input type="checkbox"> 记住用户名
+          <input type="checkbox" name="rememberUserName" value="1" ${not empty cookie.rememberUNCookie?"checked='checked'":"" }> 记住用户名
         </label>
       </div>
     </div>

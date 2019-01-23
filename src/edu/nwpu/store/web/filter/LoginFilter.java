@@ -21,8 +21,6 @@ public class LoginFilter implements Filter {
 	
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO 自动生成的方法存根
-		
 	}
 	
 	@Override
@@ -87,8 +85,6 @@ public class LoginFilter implements Filter {
 	
 	@Override
 	public void destroy() {
-		// TODO 自动生成的方法存根
-		
 	}
 	
 }

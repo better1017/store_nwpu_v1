@@ -14,4 +14,6 @@ public interface UserDao {
 
 	public User userLogin(User user) throws SQLException;
 
+	public User findUserbyUserName(User user) throws SQLException;
+
 }

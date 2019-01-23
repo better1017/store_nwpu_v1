@@ -49,4 +49,13 @@ public class UserDaoIml implements UserDao {
 		return user;
 	}
 
+	
+	@Override
+	public User findUserbyUserName(User user) throws SQLException {
+		String sql = "SELECT * FROM user WHERE username=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		user = qr.query(sql, new BeanHandler<User>(User.class), user.getUsername());
+		return user;
+	}
+
 }

@@ -46,6 +46,33 @@ font {
 	padding: 0 10px;
 }
 </style>
+<!-- 给username文本框绑定事件，blur失去焦点触发js -->
+<script type="text/javascript">
+	$(function(){
+		$("#username").blur(function() {
+			// 获取文本框的值
+			var val = $(this).val();
+			
+			// 异步发送数据
+			if("" != val) {
+				var url = "${pageContext.request.contextPath}/UserServlet";
+				var params = { "method" : "checkUserName", "username" : val }
+				$.post(url, params, function(data) {
+					if (data == 0) {
+						$("#s1").html("用户名可以使用").css("color", "#0f0");
+						$("#regBut").attr("disabled", false);
+					} else if(data == 1) {
+						$("#s1").html("该用户名已经被注册过了！").css("color", "#f00");
+						$("#regBut").attr("disabled", true);
+					}
+				});
+			} else {
+				$("#s1").html("请输入用户名").css("color", "#f00");
+				$("#regBut").attr("disabled", true);
+			}
+		});
+	});
+</script>
 </head>
 <body>
 <div class="container">
@@ -67,6 +94,8 @@ font {
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="username"
 								name="username" placeholder="请输入用户名">
+							<!-- 显示用户名是否存在 -->
+							<span id="s1"></span>
 						</div>
 					</div>
 					<div class="form-group">
@@ -136,7 +165,7 @@ font {
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<input type="submit" width="100" value="注册" name="submit"
+							<input id="regBut" type="submit" width="100" value="注册" name="submit"
 								border="0"
 								style="background: url('${pageContext.request.contextPath}/img/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 				    height:35px;width:100px;color:white;">

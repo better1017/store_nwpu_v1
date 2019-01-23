@@ -82,7 +82,7 @@ public class UserServlet extends BaseServlet {
 		return "/jsp/login.jsp";
 	}
 
-	// userLogin：用户登录的实际实现
+	// userLogin：用户登录的实际实现（包括用户登录、自动登录、记住用户名的业务逻辑）
 	public String userLogin(HttpServletRequest request, HttpServletResponse response) {
 		// 获取用户数据（账户 + 密码）并封装
 		User user = MyBeanUtils.populate(User.class, request.getParameterMap());
@@ -108,6 +108,22 @@ public class UserServlet extends BaseServlet {
 				autoLoginCookie.setPath("/");
 				autoLoginCookie.setMaxAge(0);
 				response.addCookie(autoLoginCookie);
+			}
+			
+			// 处理记住用户名的业务
+			// 记住用户名start
+			String rememberUN = request.getParameter("rememberUserName");
+			// 勾选了记住用户名的选项
+			if ("1".equals(rememberUN)) {
+				Cookie rememberUNCookie = new Cookie("rememberUNCookie", user.getUsername());
+				rememberUNCookie.setPath("/");
+				rememberUNCookie.setMaxAge(60*60*24*7);
+				response.addCookie(rememberUNCookie);
+			} else { // 没有勾选记住用户名的选项
+				Cookie rememberUNCookie = new Cookie("rememberUNCookie", "");
+				rememberUNCookie.setPath("/");
+				rememberUNCookie.setMaxAge(0);
+				response.addCookie(rememberUNCookie);
 			}
 
 			// 重定向到首页
@@ -144,5 +160,30 @@ public class UserServlet extends BaseServlet {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	// Ajax检查用户名
+	public void checkUserName(HttpServletRequest request, HttpServletResponse response) {
+		// System.out.println("******checkusername*****************");
+		// 接收文本框的值
+		User user = MyBeanUtils.populate(User.class, request.getParameterMap());
+		// 业务层进行查询
+		UserService us = new UserServiceIml();
+		
+		try {
+			user = us.checkUserName(user);
+			// 判断业务层返回的结果，向前端发送消息：0没有，1有
+			if (user == null) {
+				// 用户名没有被使用
+				response.getWriter().print(0);
+			} else {
+				// 用户名已经被使用
+				response.getWriter().print(1);
+			}
+		} catch (Exception e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		
 	}
 }
