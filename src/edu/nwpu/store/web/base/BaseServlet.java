@@ -19,6 +19,9 @@ public class BaseServlet extends HttpServlet {
 		if (null == md || "".equals(md) || "".equals(md.trim())) {
 			md = "defaultMethod";
 		}
+		
+		// 注意：此处的this代表的是子类的对象
+		// 子类对象的字节码对象
 		Class clazz = this.getClass();
 		try {
 			Method method = clazz.getMethod(md, HttpServletRequest.class, HttpServletResponse.class);
@@ -33,6 +36,7 @@ public class BaseServlet extends HttpServlet {
 		}
 	}
 
+	// 默认方法
 	private String defaultMethod(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return null;
 	}

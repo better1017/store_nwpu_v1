@@ -6,7 +6,11 @@ import edu.nwpu.store.domain.User;
 
 public interface UserService {
 
-	//userRegister
+	// userRegister
 	public void userRegister(User user) throws SQLException;
+
+	public boolean activeAccount(String code) throws SQLException;
+
+	public User userLogin(User user) throws SQLException;
 
 }

@@ -4,16 +4,16 @@ import java.util.Date;
 
 public class User {
 
-	private String uid; //用户编号
-	private String username; //用户账户
-	private String password; //用户密码
-	private String name; //用户昵称
-	private String email; //用户邮箱
-	private String telephone; //用户电话
-	private Date birthday; //用户生日
-	private String sex; //用户性别
-	private int state; //用户状态
-	private String code; //用户编码
+	private String uid; // 用户编号
+	private String username; // 用户账户
+	private String password; // 用户密码
+	private String name; // 用户昵称
+	private String email; // 用户邮箱
+	private String telephone; // 用户电话
+	private Date birthday; // 用户生日
+	private String sex; // 用户性别
+	private int state; // 用户状态 1：激活 0：未激活
+	private String code; // 用户编码
 
 	public String getUid() {
 		return uid;
@@ -112,6 +112,11 @@ public class User {
 		this.sex = sex;
 		this.state = state;
 		this.code = code;
+	}
+
+	public User(String userName, String userPWD) {
+		this.username = userName;
+		this.password = userPWD;
 	}
 
 	@Override
