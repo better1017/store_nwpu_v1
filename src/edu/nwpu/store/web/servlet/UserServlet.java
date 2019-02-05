@@ -2,14 +2,18 @@ package edu.nwpu.store.web.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.nwpu.store.domain.Category;
 import edu.nwpu.store.domain.User;
+import edu.nwpu.store.service.CategoryService;
 import edu.nwpu.store.service.UserService;
+import edu.nwpu.store.service.serviceIml.CategoryServiceImp;
 import edu.nwpu.store.service.serviceIml.UserServiceIml;
 import edu.nwpu.store.utils.MailUtils;
 import edu.nwpu.store.utils.MyBeanUtils;
@@ -22,6 +26,17 @@ public class UserServlet extends BaseServlet {
 
 	// registerUI：跳转到注册页面
 	public String registerUI(HttpServletRequest request, HttpServletResponse response) {
+		// 调用业务层功能：获取全部分类信息，返回集合
+				CategoryService cs = new CategoryServiceImp();
+				List<Category> categoryList = null;
+				try {
+					categoryList = cs.getAllCategories();
+				} catch (SQLException e) {
+					// TODO 自动生成的 catch 块
+					e.printStackTrace();
+				}
+				// 将返回的集合放入request
+				request.setAttribute("allCategories", categoryList);
 		return "/jsp/register.jsp";
 	}
 
@@ -111,7 +126,6 @@ public class UserServlet extends BaseServlet {
 			}
 			
 			// 处理记住用户名的业务
-			// 记住用户名start
 			String rememberUN = request.getParameter("rememberUserName");
 			// 勾选了记住用户名的选项
 			if ("1".equals(rememberUN)) {

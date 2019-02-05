@@ -17,7 +17,7 @@ public class BaseServlet extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String md = request.getParameter("method");
 		if (null == md || "".equals(md) || "".equals(md.trim())) {
-			md = "defaultMethod";
+			md = "execute";
 		}
 		
 		// 注意：此处的this代表的是子类的对象
@@ -37,7 +37,7 @@ public class BaseServlet extends HttpServlet {
 	}
 
 	// 默认方法
-	private String defaultMethod(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return null;
 	}
 
