@@ -12,7 +12,7 @@ public class CookieUtils {
 	 * @return 指定的cookie
 	 */
 	public static Cookie getCookieByName(String name, Cookie[] cookies) {
-		if(cookies!=null){
+		if(cookies != null){
 			for (Cookie c : cookies) {
 				//通过名称获取
 				if(name.equals(c.getName())){

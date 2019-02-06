@@ -2,8 +2,8 @@
 <c3p0-config>
 	<!-- 默认配置，如果没有指定则使用这个配置 -->
 	<default-config>
-		<property name="driverClass">com.mysql.jdbc.Driver</property>
-		<property name="jdbcUrl">jdbc:mysql://localhost:3306/store_nwpu_v1?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8</property>
+		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/store_nwpu_v1?serverTimezone=GMT%2B8&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;allowPublicKeyRetrieval=true</property>
 		<property name="user">root</property>
 		<property name="password">123654</property>
 		<property name="checkoutTimeout">30000</property>
