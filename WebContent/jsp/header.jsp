@@ -42,7 +42,7 @@
 				</c:if>
 				<!-- 登录状态 -->
 				<c:if test="${not empty loginUser }">
-					<li> 欢迎 ${loginUser.name} </a></li>
+					<li><a> 欢迎${loginUser.name} </a></li>
 					<li><a href="${pageContext.request.contextPath}/UserServlet?method=logout">退出</a></li>
 				</c:if>
 				
@@ -69,12 +69,12 @@
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-					
+					<ul class="nav navbar-nav" id = "myUL">
+					<%--
 					<c:forEach items="${allCategories }" var="c">
 						<li><a href="#">${c.cname }</a></li>
 					</c:forEach>
-						
+					--%>
 					</ul>
 					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
@@ -89,6 +89,23 @@
 			<!-- /.container-fluid -->
 		</nav>
 	</div>
+	</div>
 </body>
-
+<script type="text/javascript">
+$(function(){
+	//向服务器端CategoryServlet->getAllCategories()发起ajax请求，服务器端经过处理
+	//将所有分类信息以JSON格式的数据返回，获取到返回的所有分类绑定再页面的显示分类区域
+	var url = "${pageContext.request.contextPath}/CategoryServlet";
+	var param = {"method" : "findAllCats"};
+	$.post(url, param, function(data){
+		// alert(data);
+		// 获取到服务器端响应回来的数据，经过观察data中存放的是一个JSON格式的数组，遍历数组，动态的显示分类区域代码
+		var li = "<li><a href = '#'></a></li>";
+		$.each(data, function(i, obj){
+			var li = "<li><a href = '#'>" + obj.cname + "</a></li>";
+			$("#myUL").append(li);
+		}); // 遍历
+	}, "json");
+});
+</script>
 </html>

@@ -1,6 +1,5 @@
 package edu.nwpu.store.web.servlet;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +16,7 @@ public class IndexServlet extends BaseServlet {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		/*
 		// 调用业务层功能：获取全部分类信息，返回集合
 		CategoryService cs = new CategoryServiceImp();
 		List<Category> categoryList = cs.getAllCategories();
@@ -24,7 +24,8 @@ public class IndexServlet extends BaseServlet {
 		request.setAttribute("allCategories", categoryList);
 		// 转发到真实的首页
 		return "/jsp/index.jsp";
-
+		*/
+		return null;
 	}
 
 }
