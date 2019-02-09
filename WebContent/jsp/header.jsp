@@ -92,6 +92,7 @@
 	</div>
 </body>
 <script type="text/javascript">
+// 在页面加载完毕之后，向服务器端发起AJAX请求
 $(function(){
 	//向服务器端CategoryServlet->getAllCategories()发起ajax请求，服务器端经过处理
 	//将所有分类信息以JSON格式的数据返回，获取到返回的所有分类绑定再页面的显示分类区域

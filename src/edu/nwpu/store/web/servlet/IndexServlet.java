@@ -1,14 +1,9 @@
 package edu.nwpu.store.web.servlet;
 
-import java.util.List;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.nwpu.store.domain.Category;
-import edu.nwpu.store.service.CategoryService;
-import edu.nwpu.store.service.serviceIml.CategoryServiceImp;
 import edu.nwpu.store.web.base.BaseServlet;
 
 @WebServlet("/IndexServlet")
@@ -22,10 +17,10 @@ public class IndexServlet extends BaseServlet {
 		List<Category> categoryList = cs.getAllCategories();
 		// 将返回的集合放入request
 		request.setAttribute("allCategories", categoryList);
-		// 转发到真实的首页
-		return "/jsp/index.jsp";
 		*/
-		return null;
+		// 转发到真实的首页
+		//System.out.println("**************************IndexServlet****************************");
+		return "/jsp/index.jsp";
 	}
 
 }
