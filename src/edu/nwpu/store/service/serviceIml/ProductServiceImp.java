@@ -22,4 +22,9 @@ public class ProductServiceImp implements ProductService {
 		return dao.findNews();
 	}
 
+	@Override
+	public Product findProductByPid(String pid) throws SQLException {
+		return dao.findProductByPid(pid);
+	}
+
 }

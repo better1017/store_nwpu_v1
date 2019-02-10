@@ -33,19 +33,25 @@
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
+							<a href=""> <!-- 第一个轮播图片 -->
 							<img src="${pageContext.request.contextPath}/img/ad/1.jpg">
+							</a>
 							<div class="carousel-caption">
 
 							</div>
 						</div>
 						<div class="item">
+							<a href=""> <!-- 第二个轮播图片 -->
 							<img src="${pageContext.request.contextPath}/img/ad/2.jpg">
+							</a>
 							<div class="carousel-caption">
 
 							</div>
 						</div>
 						<div class="item">
+							<a href=""> <!-- 第三个轮播图片 -->
 							<img src="${pageContext.request.contextPath}/img/ad/3.jpg">
+							</a>
 							<div class="carousel-caption">
 
 							</div>
@@ -63,30 +69,32 @@
 					</a>
 				</div>
 			</div>
+			
 			<!--
-
             	描述：商品显示
             -->
 			<div class="container-fluid">
 				<div class="col-md-12">
-					<h2>热门商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
+					<h2>热门图书&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
 				</div>
 				<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
+					<a href=""><!-- 左侧竖栏广告 -->
 					<img src="products/hao/big01.jpg" width="205" height="404" style="display: inline-block;"/>
+					</a>
 				</div>
 				<div class="col-md-10">
 					<div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
-						<a href="product_info.htm">
+						<a href=""><!-- 中间横栏广告 -->
 							<img src="products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
 						</a>
 					</div>
 
 					<c:forEach items="${hots }" var="p">
 						<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
+						<a href="${pageContext.request.contextPath }/ProductServlet?method=findProductByPid&pid=${p.pid }">
 							<img src="${pageContext.request.contextPath }/${p.pimage }" width="130" height="130" style="display: inline-block;">
 						</a>
-						<p><a href="product_info.html" style='color:#666'>${p.pname }</a></p>
+						<p><a href="${pageContext.request.contextPath }/ProductServlet?method=findProductByPid&pid=${p.pid }" style='color:#666'>${p.pname }</a></p>
 						<p><font color="#E4393C" style="font-size:16px">&yen;${p.shop_price }</font></p>
 						</div>
 					</c:forEach>
@@ -95,10 +103,12 @@
 			</div>
 			
 			<!--
-            	描述：广告部分
+            	描述：广告部分：横栏大广告
             -->
             <div class="container-fluid">
+            	<a href="">
 				<img src="products/hao/ad.jpg" width="100%"/>
+				</a>
 			</div>
 			
 			<!--
@@ -106,24 +116,26 @@
             -->
 			<div class="container-fluid">
 				<div class="col-md-12">
-					<h2>最新商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
+					<h2>最新图书&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
 				</div>
 				<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
+					<a href="">
 					<img src="products/hao/big01.jpg" width="205" height="404" style="display: inline-block;"/>
+					</a>
 				</div>
 				<div class="col-md-10">
 					<div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
-						<a href="product_info.htm">
+						<a href="">
 							<img src="products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
 						</a>
 					</div>
 					
 					<c:forEach items="${news }" var="p">
 						<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
+						<a href="${pageContext.request.contextPath }/ProductServlet?method=findProductByPid&pid=${p.pid }">
 							<img src="${pageContext.request.contextPath }/${p.pimage }" width="130" height="130" style="display: inline-block;">
 						</a>
-						<p><a href="product_info.html" style='color:#666'>${p.pname }</a></p>
+						<p><a href="${pageContext.request.contextPath }/ProductServlet?method=findProductByPid&pid=${p.pid }" style='color:#666'>${p.pname }</a></p>
 						<p><font color="#E4393C" style="font-size:16px">&yen;${p.shop_price }</font></p>
 						</div>
 					</c:forEach>
