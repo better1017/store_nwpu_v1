@@ -14,7 +14,7 @@
     		<a href="${pageContext.request.contextPath}/${page.url}?num=1">首页</a>
     		
     		<c:if test="${page.currentPageNum != 1}">
-    			<a href="${pageContext.request.contextPath}/${page.url}?num=${page.prePageNum}">上一页</a>
+    			<a href="${pageContext.request.contextPath}/${page.url}&num=${page.prePageNum}">上一页</a>
     		</c:if>
     		
     		
@@ -27,7 +27,7 @@
     		   		${pagenum}
     		   </c:if>
     		   <c:if test="${page.currentPageNum!=pagenum}">
-    		   		<a href="${pageContext.request.contextPath}/${page.url}?num=${pagenum}">${pagenum}</a>
+    		   		<a href="${pageContext.request.contextPath}/${page.url}&num=${pagenum}">${pagenum}</a>
     		   </c:if>
     		</c:forEach>
     		

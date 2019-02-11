@@ -35,9 +35,11 @@ public class ProductServlet extends BaseServlet {
 
 	public String findProductsByCidWithPage(HttpServletRequest request, HttpServletResponse response) {
 
+		// System.out.println("***************findProductsByCidWithPage***************");
 		// 获取cid,num
 		String cid = request.getParameter("cid");
 		int curNum = Integer.parseInt(request.getParameter("num"));
+		// System.out.println(curNum);
 		// 调用业务层功能：以分页形式查询当前类别下的商品信息
 		ProductService ps = new ProductServiceImp();
 		PageModel pm = null;

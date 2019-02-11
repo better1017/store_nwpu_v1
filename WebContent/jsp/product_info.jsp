@@ -37,6 +37,7 @@
 			</div>
 
 			<div style="margin:0 auto;width:950px;">
+			  <form id="myForm" action="${pageContext.request.contextPath}/CartServlet?method=addCartItemToCart" method="post">
 				<div class="col-md-6">
 					<img style="opacity: 1;width:400px;height:350px;" title="" class="medium" src="${pageContext.request.contextPath}/${product.pimage }">
 				</div>
@@ -60,16 +61,22 @@
 					<div style="padding:10px;border:1px solid #e7dbb1;width:330px;margin:15px 0 10px 0;;background-color: #fffee6;">
 						<div style="margin:5px 0 10px 0;">白色</div>
 
-						<div style="border-bottom: 1px solid #faeac7;margin-top:20px;padding-left: 10px;">购买数量:
-							<input id="quantity" name="quantity" value="1" maxlength="4" size="10" type="text"> </div>
+						<div style="border-bottom: 1px solid #faeac7;margin-top:20px;padding-left: 10px;">
+							<!-- 向服务端发送购买数量 -->
+							购买数量:<input id="quantity" name="quantity" value="1" maxlength="4" size="10" type="text" />
+							<!-- 向服务端发送商品pid -->
+							<input type="hidden" name="pid" value="${product.pid }" />
+						</div>
 
 						<div style="margin:20px 0 10px 0;;text-align: center;">
 							<%--加入到购物车 --%>
-							<a href="${pageContext.request.contextPath}/jsp/cart.jsp">
-								<input style="background: url('${pageContext.request.contextPath}/img/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;" value="加入购物车" type="button">
+							<!-- 取消链接的默认行为 -->
+							<a href="javascript:void(0)">
+								<input id="btnId" style="background: url('${pageContext.request.contextPath}/img/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;" value="加入购物车" type="button">
 							</a> &nbsp;收藏商品</div>
 					</div>
 				</div>
+			  </form>
 			</div>
 			<div class="clear"></div>
 			<div style="width:950px;margin:0 auto;">
@@ -140,4 +147,14 @@
 	<%@ include file="/jsp/footer.jsp" %>
 
 </body>
+<script type="text/javascript">
+	$(function() {
+		$("#btnId").click(function() {
+			var formObj = document.getElementById("myForm");
+			//formObj.action="/store_nwpu_v1";
+			//formObj.method="get";
+			formObj.submit();
+		});
+	});
+</script>
 </html>

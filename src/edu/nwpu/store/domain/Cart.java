@@ -53,4 +53,9 @@ public class Cart {
 		
 		return total;
 	}
+	
+	//返回map中所有的值：判断是否为空、遍历map
+	public Collection<CartItem> getCartItems() {
+		return map.values();
+	}
 }

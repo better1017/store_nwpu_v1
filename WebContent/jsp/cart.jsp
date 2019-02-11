@@ -38,11 +38,17 @@
 	</head>
 
 	<body>
-
+		<%@ include file="/jsp/header.jsp" %>
 	<div class="container">
 	
-		<%@ include file="/jsp/header.jsp" %>
-		
+		<c:if test="${empty  cart.cartItems}">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>您的购物车中还没有图书呢~~~ 快去添加吧！</h1>
+				</div>
+			</div>
+		</c:if>
+		<c:if test="${not empty  cart.cartItems}">
 		<div class="row">
 
 			<div style="margin:0 auto; margin-top:10px;width:950px;">
@@ -57,37 +63,40 @@
 							<th>小计</th>
 							<th>操作</th>
 						</tr>
-						<tr class="active">
-							<td width="60" width="40%">
-								<input type="hidden" name="id" value="22">
-								<img src="${pageContext.request.contextPath}/products/2/dadonggua.jpg" width="70" height="60">
-							</td>
-							<td width="30%">
-								<a target="_blank"> 有机蔬菜      大冬瓜...</a>
-							</td>
-							<td width="20%">
-								￥298.00
-							</td>
-							<td width="10%">
-								<input type="text" name="quantity" value="1" maxlength="4" size="10">
-							</td>
-							<td width="15%">
-								<span class="subtotal">￥596.00</span>
-							</td>
-							<td>
-								<a href="javascript:;" class="delete">删除</a>
-							</td>
-						</tr>
+						<c:forEach items="${cart.cartItems }" var="item">
+							<tr class="active">
+								<td width="60" width="40%">
+									<input type="hidden" name="id" value="22">
+									<img src="${pageContext.request.contextPath}/${item.product.pimage }" width="70" height="60">
+								</td>
+								<td width="30%">
+									<a target="_blank">${item.product.pname }</a>
+								</td>
+								<td width="20%">
+									￥${item.product.shop_price }
+								</td>
+								<td width="10%">
+									<input type="text" name="quantity" value="${item.num }" maxlength="4" size="10">
+								</td>
+								<td width="15%">
+									<span class="subtotal">￥${item.subTotal }</span>
+								</td>
+								<td>
+									<a href="javascript:;" class="delete">删除</a>
+								</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
 		</div>
+		</c:if>
 
 		<div style="margin-right:130px;">
 			<div style="text-align:right;">
 				<em style="color:#ff6600;">
 			登录后确认是否享有优惠&nbsp;&nbsp;
-		</em> 赠送积分: <em style="color:#ff6600;">596</em>&nbsp; 商品金额: <strong style="color:#ff6600;">￥596.00元</strong>
+		</em> 赠送积分: <em style="color:#ff6600;">${cart.total }</em>&nbsp; 商品金额: <strong style="color:#ff6600;">￥${cart.total }元</strong>
 			</div>
 			<div style="text-align:right;margin-top:10px;margin-bottom:10px;">
 				<a href="${pageContext.request.contextPath}/jsp/order_info.jsp" id="clear" class="clear">清空购物车</a>
@@ -99,9 +108,9 @@
 			</div>
 		</div>
 		
-		<%@ include file="/jsp/footer.jsp" %>
+		
 		
 	</div>
-
+		<%@ include file="/jsp/footer.jsp" %>
 	</body>
 </html>
