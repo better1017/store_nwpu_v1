@@ -103,7 +103,7 @@ $(function(){
 		// 获取到服务器端响应回来的数据，经过观察data中存放的是一个JSON格式的数组，遍历数组，动态的显示分类区域代码
 		var li = "<li><a href = '#'></a></li>";
 		$.each(data, function(i, obj){
-			var li = "<li><a href = '#'>" + obj.cname + "</a></li>";
+			var li = "<li><a href = '/store_nwpu_v1/ProductServlet?method=findProductsByCidWithPage&num=1&cid="+obj.cid+"'>" + obj.cname + "</a></li>";
 			$("#myUL").append(li);
 		}); // 遍历
 	}, "json");

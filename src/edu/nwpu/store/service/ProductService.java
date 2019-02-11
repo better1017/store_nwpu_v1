@@ -3,6 +3,7 @@ package edu.nwpu.store.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import edu.nwpu.store.domain.PageModel;
 import edu.nwpu.store.domain.Product;
 
 public interface ProductService {
@@ -12,5 +13,7 @@ public interface ProductService {
 	List<Product> findNews() throws SQLException;
 
 	Product findProductByPid(String pid) throws SQLException;
+
+	PageModel findProductsByCidWithPage(String cid, int curNum) throws SQLException;
 
 }

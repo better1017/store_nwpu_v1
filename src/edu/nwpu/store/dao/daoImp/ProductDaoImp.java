@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import edu.nwpu.store.dao.ProductDao;
 import edu.nwpu.store.domain.Product;
@@ -32,6 +33,21 @@ public class ProductDaoImp implements ProductDao {
 		String sql = "SELECT * FROM product WHERE pid=?";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanHandler<Product>(Product.class), pid);
+	}
+
+	@Override
+	public int findTotalRecords(String cid) throws SQLException {
+		String sql = "SELECT COUNT(*) FROM product WHERE cid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long)qr.query(sql, new ScalarHandler(), cid);
+		return num.intValue();
+	}
+
+	@Override
+	public List findProductsByCidWithPage(String cid, int startIndex, int pageSize) throws SQLException {
+		String sql = "SELECT * FROM product WHERE cid=? LIMIT ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Product>(Product.class), cid, startIndex, pageSize);
 	}
 
 }

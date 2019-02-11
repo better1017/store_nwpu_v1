@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>杨远林-在线书店</title>
+		<title>杨远林 - 在线书店</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css" />
 		<script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
 		<script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
@@ -107,7 +107,7 @@
             -->
             <div class="container-fluid">
             	<a href="">
-				<img src="products/hao/ad.jpg" width="100%"/>
+				<img src="products/hao/ad.jpg" width="100%"/ >
 				</a>
 			</div>
 			
