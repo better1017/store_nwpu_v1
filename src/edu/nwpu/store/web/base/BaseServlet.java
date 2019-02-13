@@ -1,9 +1,7 @@
 package edu.nwpu.store.web.base;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +12,7 @@ public class BaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void service(HttpServletRequest request, HttpServletResponse response){
 		String md = request.getParameter("method");
 		if (null == md || "".equals(md) || "".equals(md.trim())) {
 			md = "execute";
@@ -37,7 +35,7 @@ public class BaseServlet extends HttpServlet {
 	}
 
 	// 默认方法
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		return null;
 	}
 

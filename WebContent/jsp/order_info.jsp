@@ -35,7 +35,7 @@
 					<table class="table table-bordered">
 						<tbody>
 							<tr class="warning">
-								<th colspan="5">订单编号:9005 </th>
+								<th colspan="5">订单编号:${order.oid } </th>
 							</tr>
 							<tr class="warning">
 								<th>图片</th>
@@ -44,30 +44,32 @@
 								<th>数量</th>
 								<th>小计</th>
 							</tr>
+							<c:forEach items="${order.list }" var="item">
 							<tr class="active">
 								<td width="60" width="40%">
 									<input type="hidden" name="id" value="22">
-									<img src="${pageContext.request.contextPath}/products/2/dadonggua.jpg" width="70" height="60">
+									<img src="${pageContext.request.contextPath}/${item.product.pimage }" width="70" height="60">
 								</td>
 								<td width="30%">
-									<a target="_blank"> 有机蔬菜      大冬瓜...</a>
+									<a target="_blank"> ${item.product.pname } </a>
 								</td>
 								<td width="20%">
-									￥298.00
+									￥${item.product.shop_price }
 								</td>
 								<td width="10%">
-									5
+									${item.quantity }
 								</td>
 								<td width="15%">
-									<span class="subtotal">￥596.00</span>
+									<span class="subtotal">￥${item.total }</span>
 								</td>
 							</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>
 
 				<div style="text-align:right;margin-right:120px;">
-					商品金额: <strong style="color:#ff6600;">￥596.00元</strong>
+					商品金额: <strong style="color:#ff6600;">￥${order.total }元</strong>
 				</div>
 
 			</div>

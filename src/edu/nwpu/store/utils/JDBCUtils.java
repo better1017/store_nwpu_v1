@@ -101,7 +101,7 @@ public class JDBCUtils {
 			conn.commit();
 			//关闭资源
 			conn.close();
-			//解除版定
+			//解除绑定
 			tl.remove();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -119,7 +119,7 @@ public class JDBCUtils {
 			conn.rollback();
 			//关闭资源
 			conn.close();
-			//解除版定
+			//解除绑定
 			tl.remove();
 		} catch (SQLException e) {
 			e.printStackTrace();
