@@ -11,7 +11,7 @@
     	<div style="text-align:center">
     		共${page.totalPageNum}页/第${page.currentPageNum}页
     		
-    		<a href="${pageContext.request.contextPath}/${page.url}?num=1">首页</a>
+    		<a href="${pageContext.request.contextPath}/${page.url}&num=1">首页</a>
     		
     		<c:if test="${page.currentPageNum != 1}">
     			<a href="${pageContext.request.contextPath}/${page.url}&num=${page.prePageNum}">上一页</a>
