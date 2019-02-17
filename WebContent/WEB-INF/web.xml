@@ -25,4 +25,16 @@
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <!-- 
+	  <filter>
+	  	<filter-name>PriviledgeFilter</filter-name>
+	  	<filter-class>package edu.nwpu.store.web.filter.PriviledgeFilter</filter-class>
+	  </filter>
+	  <filter-mapping>
+	    <filter-name>PriviledgeFilter</filter-name>
+	    <url-pattern>/jsp/cart.jsp</url-pattern>
+	    <url-pattern>/jsp/order_info.jsp</url-pattern>
+	    <url-pattern>/jsp/order_list.jsp</url-pattern>
+	  </filter-mapping>
+  -->
 </web-app>
