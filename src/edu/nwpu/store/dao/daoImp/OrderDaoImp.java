@@ -32,7 +32,7 @@ public class OrderDaoImp implements OrderDao {
 		Object[] params = { order.getOid(), order.getOrderTime(), order.getTotal(), order.getState(),
 				order.getAddress(), order.getName(), order.getTelephone(), order.getUser().getUid() };
 		qr.update(conn, sql, params);
-		System.out.println("end3");
+		//System.out.println("end3");
 	}
 
 	@Override
@@ -99,10 +99,7 @@ public class OrderDaoImp implements OrderDao {
 		String sql = "SELECT * FROM orders WHERE oid=?";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		Order order = qr.query(sql, new BeanHandler<Order>(Order.class), oid);
-		System.out.println(oid);
-		if (order==null) {
-			System.out.println("order is null");
-		}
+
 		// 根据订单id查询订单下所有的订单项以及订单项对应的商品信息
 		sql = "SELECT * FROM orderitem o, product p WHERE o.pid=p.pid AND o.oid=?";
 		List<Map<String, Object>> list2 = qr.query(sql, new MapListHandler(), oid);
@@ -121,14 +118,8 @@ public class OrderDaoImp implements OrderDao {
 
 			// 将map中属于OrderItem的数据自动填充到orderItem对象上
 			BeanUtils.populate(orderItem, map);
-			if (orderItem==null) {
-				System.out.println("orderItem is null");
-			}
 			// 将map中属于Product的数据自动填充到product对象上
 			BeanUtils.populate(product, map);
-			if (product==null) {
-				System.out.println("product is null");
-			}
 
 			// 将商品与订单项关联
 			orderItem.setProduct(product);
@@ -138,6 +129,17 @@ public class OrderDaoImp implements OrderDao {
 		}
 
 		return order;
+	}
+
+	@Override
+	public void updateOrder(Order order) throws Exception {
+		//System.out.println(order.toString());
+		String sql = "UPDATE orders SET ordertime=?,total=?,state=?,address=?,name=?,telephone=?,uid=? WHERE oid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Object[] params = { order.getOrderTime(), order.getTotal(), order.getState(), order.getAddress(), 
+				order.getName(), order.getTelephone(), order.getUser().getUid(), order.getOid() };
+		
+		qr.update(sql, params);
 	}
 
 }

@@ -40,7 +40,7 @@ public class OrderServiceImp implements OrderService {
 			// 提交
 			conn.commit();
 
-			System.out.println("end2");
+			//System.out.println("end2");
 
 		} catch (Exception e) {
 			// 回滚
@@ -72,6 +72,11 @@ public class OrderServiceImp implements OrderService {
 	public Order findOrderByOid(String oid) throws Exception {
 		
 		return dao.findOrderByOid(oid);
+	}
+
+	@Override
+	public void updateOrder(Order order) throws Exception {
+		dao.updateOrder(order);
 	}
 
 }

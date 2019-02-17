@@ -23,4 +23,9 @@ public class MD5Utils {
 		}
 		return md5code;
 	}
+	
+	public static void main(String[] args) {
+		String str = MD5Utils.md5("I have a dream.");
+		System.out.println(str);
+	}
 }
