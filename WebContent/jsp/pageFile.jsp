@@ -11,6 +11,8 @@
     	<div style="text-align:center">
     		共${page.totalPageNum}页/第${page.currentPageNum}页
     		
+    		<!-- <a href="${pageContext.request.contextPath}/AdminProductServlet?method=findAllProductsWithPage&num=1">首页</a> -->
+    		
     		<a href="${pageContext.request.contextPath}/${page.url}&num=1">首页</a>
     		
     		<c:if test="${page.currentPageNum != 1}">
@@ -32,11 +34,11 @@
     		</c:forEach>
     		
     		<c:if test="${page.currentPageNum != page.totalPageNum}">
-    			<a href="${pageContext.request.contextPath}/${page.url}?num=${page.nextPageNum}">下一页</a>
+    			<a href="${pageContext.request.contextPath}/${page.url}&num=${page.nextPageNum}">下一页</a>
     		</c:if>
     		
     		
-    		<a href="${pageContext.request.contextPath}/${page.url}?num=${page.totalPageNum}">末页</a>
+    		<a href="${pageContext.request.contextPath}/${page.url}&num=${page.totalPageNum}">末页</a>
     		
     		<input type="text" id="pagenum" name="pagenum" size="1"/>
     		<input type="button" value="前往" onclick="jump()" />

@@ -18,4 +18,11 @@ public class CategoryDaoImp implements CategoryDao {
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Category>(Category.class));
 	}
+
+	@Override
+	public void addCategory(Category category) throws SQLException {
+		String sql = "INSERT INTO category(cid,cname) VALUES (?,?)";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		qr.update(sql, category.getCid(), category.getCname());
+	}
 }
