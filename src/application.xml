@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean id="CategoryDao" class="edu.nwpu.store.dao.daoImp.CategoryDaoImp" />
+	<bean id="OrderDao" class="edu.nwpu.store.dao.daoImp.OrderDaoImp" />
+	<bean id="ProductDao" class="edu.nwpu.store.dao.daoImp.ProductDaoImp" />
+	<bean id="UserDao" class="edu.nwpu.store.dao.daoImp.UserDaoIml" />
+</beans>

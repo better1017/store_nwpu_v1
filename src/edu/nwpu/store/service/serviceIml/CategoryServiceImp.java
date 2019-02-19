@@ -7,11 +7,12 @@ import edu.nwpu.store.dao.CategoryDao;
 import edu.nwpu.store.dao.daoImp.CategoryDaoImp;
 import edu.nwpu.store.domain.Category;
 import edu.nwpu.store.service.CategoryService;
+import edu.nwpu.store.utils.BeanFactory;
 import edu.nwpu.store.utils.JedisUtils;
 import redis.clients.jedis.Jedis;
 
 public class CategoryServiceImp implements CategoryService {
-	CategoryDao dao = new CategoryDaoImp();
+	CategoryDao dao = (CategoryDao) BeanFactory.creatObject("CategoryDao");
 
 	@Override
 	public List<Category> getAllCategories() throws SQLException {

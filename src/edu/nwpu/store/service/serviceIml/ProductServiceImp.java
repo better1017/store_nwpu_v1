@@ -8,10 +8,11 @@ import edu.nwpu.store.dao.daoImp.ProductDaoImp;
 import edu.nwpu.store.domain.PageModel;
 import edu.nwpu.store.domain.Product;
 import edu.nwpu.store.service.ProductService;
+import edu.nwpu.store.utils.BeanFactory;
 
 public class ProductServiceImp implements ProductService {
 
-	ProductDao dao = new ProductDaoImp();
+	ProductDao dao = (ProductDao) BeanFactory.creatObject("ProductDao");
 
 	@Override
 	public List<Product> findHots() throws SQLException {

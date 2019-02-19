@@ -6,21 +6,20 @@ import edu.nwpu.store.dao.UserDao;
 import edu.nwpu.store.dao.daoImp.UserDaoIml;
 import edu.nwpu.store.domain.User;
 import edu.nwpu.store.service.UserService;
+import edu.nwpu.store.utils.BeanFactory;
 
 public class UserServiceIml implements UserService {
+	UserDao dao = (UserDao) BeanFactory.creatObject("UserDao");
 
 	@Override
 	public void userRegister(User user) throws SQLException {
 		// 实现注册功能
-		UserDao dao = new UserDaoIml();
 		dao.userRegister(user);
 	}
 
 	@Override
 	public boolean activeAccount(String code) throws SQLException {
 		// 实现激活功能
-		UserDao dao = new UserDaoIml();
-
 		// 对DB发送select * from user where code=?返回一个User对象
 		User user = dao.activeAccount(code);
 		if (null != user) {
@@ -43,7 +42,6 @@ public class UserServiceIml implements UserService {
 	@Override
 	public User userLogin(User user) throws SQLException {
 		// 此处：可以使用异常在模块之间传递数据
-		UserDao dao = new UserDaoIml();
 		// SELECT * FROM user WHERE username=? AND password=?
 		user = dao.userLogin(user);
 		if (null == user) {
@@ -55,10 +53,8 @@ public class UserServiceIml implements UserService {
 		}
 	}
 
-	
 	@Override
 	public User checkUserName(User user) throws SQLException {
-		UserDao dao = new UserDaoIml();
 		user = dao.findUserbyUserName(user);
 		return user;
 	}

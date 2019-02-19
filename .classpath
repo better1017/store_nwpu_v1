@@ -25,6 +25,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-lang-2.5.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

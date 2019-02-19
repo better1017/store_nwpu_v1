@@ -10,10 +10,11 @@ import edu.nwpu.store.domain.OrderItem;
 import edu.nwpu.store.domain.PageModel;
 import edu.nwpu.store.domain.User;
 import edu.nwpu.store.service.OrderService;
+import edu.nwpu.store.utils.BeanFactory;
 import edu.nwpu.store.utils.JDBCUtils;
 
 public class OrderServiceImp implements OrderService {
-	OrderDao dao = new OrderDaoImp();
+	OrderDao dao = (OrderDao) BeanFactory.creatObject("OrderDao");
 
 	@Override
 	public void saveOrder(Order order) throws Exception {
