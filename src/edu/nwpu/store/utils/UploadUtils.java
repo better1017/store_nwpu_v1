@@ -37,7 +37,9 @@ public class UploadUtils {
 	 * @return 目录
 	 */
 	public static String getDir(String name){
+		//任意一个对象都有一个hash码
 		int i = name.hashCode();
+		//将hash码转成16进制字符串
 		String hex = Integer.toHexString(i);
 		int j=hex.length();
 		for(int k=0;k<8-j;k++){

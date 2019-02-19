@@ -18,4 +18,6 @@ public interface ProductService {
 
 	PageModel findAllProductsWithPage(int curNum) throws SQLException;
 
+	void saveProduct(Product product) throws SQLException;
+
 }
