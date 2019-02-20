@@ -59,7 +59,7 @@
 					<div style="margin:10px 0 10px 0;">促销: <a target="_blank" title="限时抢购 (2014-07-30 ~ 2015-01-01)" style="background-color: #f07373;">限时抢购</a> </div>
 
 					<div style="padding:10px;border:1px solid #e7dbb1;width:330px;margin:15px 0 10px 0;;background-color: #fffee6;">
-						<div style="margin:5px 0 10px 0;">白色</div>
+						<div style="margin:5px 0 10px 0;">库存状态：在库</div>
 
 						<div style="border-bottom: 1px solid #faeac7;margin-top:20px;padding-left: 10px;">
 							<!-- 向服务端发送购买数量 -->
@@ -84,63 +84,7 @@
 					<strong>商品介绍</strong>
 					<p>${product.pdesc }</p>
 				</div>
-
-				<div>
-					<img src="${pageContext.request.contextPath}/products/2/bigPic139f030b-d68b-41dd-be6d-b94cc568d3c5.jpg">
-				</div>
-
-				<div style="background-color:#d3d3d3;width:930px;padding:10px 10px;margin:10px 0 10px 0;">
-					<strong>商品参数</strong>
-				</div>
-				<div style="margin-top:10px;width:900px;">
-					<table class="table table-bordered">
-						<tbody>
-							<tr class="active">
-								<th colspan="2">基本参数</th>
-							</tr>
-							<tr>
-								<th width="10%">级别</th>
-								<td width="30%">标准</td>
-							</tr>
-							<tr>
-								<th width="10%">标重</th>
-								<td>500</td>
-							</tr>
-							<tr>
-								<th width="10%">浮动</th>
-								<td>200</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-
-				<div style="background-color:#d3d3d3;width:900px;">
-					<table class="table table-bordered">
-						<tbody>
-							<tr class="active">
-								<th><strong>商品评论</strong></th>
-							</tr>
-							<tr class="warning">
-								<th>暂无商品评论信息 <a>[发表商品评论]</a></th>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-
-				<div style="background-color:#d3d3d3;width:900px;">
-					<table class="table table-bordered">
-						<tbody>
-							<tr class="active">
-								<th><strong>商品咨询</strong></th>
-							</tr>
-							<tr class="warning">
-								<th>暂无商品咨询信息 <a>[发表商品咨询]</a></th>
-							</tr>
-						</tbody>
-					</table>
-				</div>
 			</div>
-
 		</div>
 	</div>
 

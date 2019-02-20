@@ -2,6 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <HTML>
+<style>
+.sel_btn{
+    height: 21px;
+    line-height: 21px;
+    padding: 0 11px;
+    background: #02bafa;
+    border: 1px #26bbdb solid;
+    border-radius: 3px;
+    /*color: #fff;*/
+    display: inline-block;
+    text-decoration: none;
+    font-size: 12px;
+    outline: none;
+}
+</style>
 	<HEAD>
 		<meta http-equiv="Content-Language" content="zh-cn">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

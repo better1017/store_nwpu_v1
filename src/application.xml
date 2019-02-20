@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+	<!-- 
+		通过BeanFactory为项目解耦
+		beans的配置文件
+	 -->
 <beans>
 	<bean id="CategoryDao" class="edu.nwpu.store.dao.daoImp.CategoryDaoImp" />
 	<bean id="OrderDao" class="edu.nwpu.store.dao.daoImp.OrderDaoImp" />

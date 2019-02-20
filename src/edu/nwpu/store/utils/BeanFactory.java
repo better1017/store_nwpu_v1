@@ -6,7 +6,12 @@ import java.util.List;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-
+/**
+ * 
+ * @author 杨远林
+ * @通过BeanFactory为项目解耦
+ *
+ */
 public class BeanFactory {
 	// 解析XML:dom4j
 	public static Object creatObject(String name) {

@@ -42,19 +42,17 @@
 		d.add('010402','0104','已下架商品管理','${pageContext.request.contextPath}/admin/product/pushDown_list.jsp','','mainFrame');
 		
 		d.add('0105','01','订单管理');
-		d.add('010501','0105','订单管理','${pageContext.request.contextPath}/admin/order/list.jsp','','mainFrame');
-		d.add('010502','0105','未付款的订单','${pageContext.request.contextPath}/admin/order/list.jsp?state=1','','mainFrame');
-		d.add('010503','0105','已付款订单','${pageContext.request.contextPath}/admin/order/list.jsp?state=2','','mainFrame');
-		d.add('010504','0105','已发货的订单','${pageContext.request.contextPath}/admin/order/list.jsp?state=3','','mainFrame');
-		d.add('010505','0105','已完成的订单','${pageContext.request.contextPath}/admin/order/list.jsp?state=4','','mainFrame');
+		d.add('010501','0105','订单管理','${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders','','mainFrame');
+		d.add('010502','0105','未付款的订单','${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders&state=1','','mainFrame');
+		d.add('010503','0105','已付款的订单','${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders&state=2','','mainFrame');
+		d.add('010504','0105','已发货的订单','${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders&state=3','','mainFrame');
+		d.add('010505','0105','已完成的订单','${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders&state=4','','mainFrame');
 		
-		d.add('0106','01','用户管理');
-		d.add('010601','0106','普通会员','','','mainFrame');
-		d.add('010601','0106','普通VIP','','','mainFrame');
-		d.add('010601','0106','白银VIP','','','mainFrame');
-		d.add('010601','0106','黄金VIP','','','mainFrame');
-		d.add('010601','0106','白金VIP','','','mainFrame');
-		d.add('010601','0106','钻石VIP','','','mainFrame');
+		d.add('0106','01','顾客用户管理');
+		d.add('010601','0106','顾客用户管理','${pageContext.request.contextPath}/admin/user/list.jsp','','mainFrame');
+		
+		d.add('0107','01','管理员用户管理');
+		d.add('010701','0107','管理员用户管理','${pageContext.request.contextPath}/admin/user/list.jsp','','mainFrame');
 		
 		document.write(d);
 		

@@ -42,7 +42,7 @@
 				</c:if>
 				<!-- 登录状态 -->
 				<c:if test="${not empty loginUser }">
-					<li><a> 欢迎${loginUser.name} </a></li>
+					<li><a href="${pageContext.request.contextPath}"> 欢迎: ${loginUser.name} </a></li>
 					<li><a href="${pageContext.request.contextPath}/UserServlet?method=logout">退出</a></li>
 				</c:if>
 				
@@ -64,7 +64,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">首页</a>
+					<a class="navbar-brand" href="${pageContext.request.contextPath}">首页</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->

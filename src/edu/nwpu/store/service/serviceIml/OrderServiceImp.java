@@ -80,4 +80,14 @@ public class OrderServiceImp implements OrderService {
 		dao.updateOrder(order);
 	}
 
+	@Override
+	public List<Order> findAllOrders() throws Exception {
+		return dao.findAllOrders();
+	}
+
+	@Override
+	public List<Order> findAllOrders(String state) throws Exception {
+		return dao.findAllOrders(state);
+	}
+
 }
