@@ -79,13 +79,13 @@
 				</div>
 				<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
 					<a href=""><!-- 左侧竖栏广告 -->
-					<img src="products/hao/big01.jpg" width="205" height="404" style="display: inline-block;"/>
+					<img src="products/hao/big102.jpg" width="205" height="404" style="display: inline-block;"/>
 					</a>
 				</div>
 				<div class="col-md-10">
 					<div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
 						<a href=""><!-- 中间横栏广告 -->
-							<img src="products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
+							<img src="products/hao/middle02.JPG" width="516px" height="200px" style="display: inline-block;">
 						</a>
 					</div>
 
@@ -120,13 +120,13 @@
 				</div>
 				<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
 					<a href="">
-					<img src="products/hao/big01.jpg" width="205" height="404" style="display: inline-block;"/>
+					<img src="products/hao/big101.jpg" width="205" height="404" style="display: inline-block;"/>
 					</a>
 				</div>
 				<div class="col-md-10">
 					<div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
 						<a href="">
-							<img src="products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
+							<img src="products/hao/middle01.JPG" width="516px" height="200px" style="display: inline-block;">
 						</a>
 					</div>
 					

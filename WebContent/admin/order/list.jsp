@@ -90,7 +90,7 @@
 													<a class="sel_btn" href="/store_nwpu_v1/AdminOrderServlet?method=updateOrderByOid&oid=${o.oid }&state=3">发货</a>
 												</c:if>
 												<c:if test="${o.state==3 }">
-													<a class="sel_btn" href="/store_nwpu_v1/AdminOrderServlet?method=updateOrderByOid&oid=${o.oid }&state=4">完成订单</a>
+													<a class="sel_btn" href="/store_nwpu_v1/AdminOrderServlet?method=updateOrderByOid&oid=${o.oid }&state=4">完成</a>
 												</c:if>
 												<c:if test="${o.state==4 }">订单已完成</c:if>
 										</td>

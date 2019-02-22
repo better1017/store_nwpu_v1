@@ -44,12 +44,14 @@ TH {
 						<tr>
 							<td width="85%" align="left">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<font color="#000000"> <script language="JavaScript">
+<!-- 显示 年月日 星期 -->
+<font color="#000000"> 
+<script language="JavaScript">
 <!--
 tmpDate = new Date();
 date = tmpDate.getDate();
 month= tmpDate.getMonth() + 1 ;
-year= tmpDate.getYear();
+year= tmpDate.getFullYear();
 document.write(year);
 document.write("年");
 document.write(month);
@@ -74,7 +76,8 @@ else
 {document.write(myArray[weekday])
 };
 // -->
-									</script> </font>
+</script>
+</font>
 							</td>
 							<td width="15%">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -87,7 +90,7 @@ else
 										</td>
 										<td width="155" valign="bottom"
 											background="${pageContext.request.contextPath}/img/admin/mis_05b.jpg">
-											用户名：
+											用户名：admin
 											<font color="blue"><s:property value="#session.existAdminUser.username"/></font>
 										</td>
 										<td width="10" align="right"

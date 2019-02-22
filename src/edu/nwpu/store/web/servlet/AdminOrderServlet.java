@@ -61,7 +61,7 @@ public class AdminOrderServlet extends BaseServlet {
 		// 根据订单的oid查询订单
 		OrderService os = new OrderServiceImp();
 		Order order = os.findOrderByOid(oid);
-		System.out.println(order);
+		// System.out.println(order);
 		// 设置订单状态
 		order.setState(state);
 		// 修改订单信息
